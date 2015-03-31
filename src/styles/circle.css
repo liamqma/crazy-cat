@@ -7,3 +7,11 @@
     float: left;
     margin: 5px;
 }
+
+.circle.blocked {
+    background-color: #ff6688;
+}
+
+.circle.cat {
+    background-color: #0000ff;
+}
