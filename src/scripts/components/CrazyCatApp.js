@@ -10,12 +10,12 @@ require('../../styles/main.css');
 require('../../styles/row.css');
 
 var CrazyCatApp = React.createClass({
-    render: function () {
+
+    getInitialState: function () {
 
         var rows = [];
 
         for (var indexY = 0; indexY < 9; indexY++) {
-
             var row = [];
             var type;
 
@@ -25,22 +25,48 @@ var CrazyCatApp = React.createClass({
                 } else {
                     type = Circle.types.EMPTY;
                 }
-                row.push(<Circle x={indexX} y={indexY} type={type} />);
+                row.push(type);
             }
 
-            var rowWrapper = (
+            rows.push(row);
+        }
+
+        return {
+            rows: rows
+        };
+    },
+
+    onCircleClick: function(x, y, type) {
+        this.state.rows[y][x] = Circle.types.BLOCKED;
+        this.setState({
+            rows: this.state.rows
+        });
+    },
+
+    render: function () {
+
+        var self = this;
+        var rowsHtml = [];
+
+        this.state.rows.forEach(function(row, indexY){
+
+            var rowHtml = [];
+
+            row.forEach(function(circleType, indexX){
+                rowHtml.push(<Circle onClick={self.onCircleClick} x={indexX} y={indexY} type={circleType} />);
+            });
+
+            rowsHtml.push(
                 <div className='row'>
-                    {row}
+                    {rowHtml}
                 </div>
             );
 
-            rows.push(rowWrapper);
-
-        }
+        });
 
         return (
             <div className='main'>
-                {rows}
+                {rowsHtml}
             </div>
         );
     }

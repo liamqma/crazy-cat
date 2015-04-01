@@ -5,24 +5,21 @@ var React = require('react/addons');
 // CSS
 require('../../styles/circle.css');
 
-class Circle extends React.Component {
-
-    onClick() {
+var Circle = React.createClass({
+    propTypes: {
+        x: React.PropTypes.number.isRequired,
+        y: React.PropTypes.number.isRequired,
+        type: React.PropTypes.string.isRequired,
+        onClick: React.PropTypes.func.isRequired
+    },
+    onClick: function() {
         this.props.onClick(this.props.x, this.props.y, this.props.type);
-    }
-
-    render() {
+    },
+    render: function() {
         var className = 'circle ' + this.props.type.toLowerCase();
-        return <div onclick={this.onClick} className={className}>Circle</div>;
+        return <div onClick={this.onClick} className={className}>Circle</div>;
     }
-}
-
-Circle.propTypes = {
-    x: React.PropTypes.number.isRequired,
-    y: React.PropTypes.number.isRequired,
-    type: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func.isRequired
-};
+});
 
 Circle.types = {
     EMPTY: 'EMPTY',
