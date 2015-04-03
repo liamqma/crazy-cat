@@ -159,7 +159,7 @@ var CrazyCatApp = React.createClass({
             for (var indexX = 0; indexX < 9; indexX++) {
                 if (indexX === currentCat.x && indexY === currentCat.y) {
                     type = Circle.types.CAT;
-                } else if (Math.random() < 0.5) {
+                } else if (Math.random() < 0.15) {
                     type = Circle.types.BLOCKED;
                 } else {
                     type = Circle.types.EMPTY;

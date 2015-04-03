@@ -17,7 +17,7 @@ var Circle = React.createClass({
     },
     render: function() {
         var className = 'circle ' + this.props.type.toLowerCase();
-        return <div onClick={this.onClick} className={className}>Circle</div>;
+        return <div onClick={this.onClick} className={className}><div>Circle</div></div>;
     }
 });
 
