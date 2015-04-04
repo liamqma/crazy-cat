@@ -134,6 +134,8 @@ var CrazyCatApp = React.createClass({
             return MOVE_BOTTOM_LEFT;
         }
 
+        this.state.isCatSad = true;
+
         var maxDirection = -1, maxValue = -1;
         for (var direction = 0; direction < distanceMap.length; direction++) {
             if (distanceMap[direction] > maxValue) {
@@ -159,7 +161,7 @@ var CrazyCatApp = React.createClass({
             for (var indexX = 0; indexX < 9; indexX++) {
                 if (indexX === currentCat.x && indexY === currentCat.y) {
                     type = Circle.types.CAT;
-                } else if (Math.random() < 0.15) {
+                } else if (Math.random() < 0.4) {
                     type = Circle.types.BLOCKED;
                 } else {
                     type = Circle.types.EMPTY;
@@ -170,6 +172,7 @@ var CrazyCatApp = React.createClass({
             rows.push(row);
         }
         return {
+            isCatSad: false,
             rows: rows
         };
     },
@@ -262,9 +265,12 @@ var CrazyCatApp = React.createClass({
             );
 
         });
-
+        var className = 'main';
+        if(this.state.isCatSad) {
+            className += ' sad-cat'
+        }
         return (
-            <div className='main'>
+            <div className={className}>
                 {rowsHtml}
             </div>
         );

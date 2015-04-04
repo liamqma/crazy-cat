@@ -32,3 +32,21 @@
 @keyframes play {
     100% { background-position: -240px; }
 }
+
+.sad-cat .circle.cat>div{
+    width: 65px;
+    height: 95px;
+    background: url('../images/sadcat.png') left center;
+    -webkit-animation: sad-cat-play .8s steps(5) infinite;
+    bottom: 2px;
+    left:-6px;
+}
+@-moz-keyframes sad-cat-play {
+    100% { background-position: -240px; }
+}
+@-webkit-keyframes sad-cat-play {
+    100% { background-position: -325px; }
+}
+@keyframes sad-cat-play {
+    100% { background-position: -240px; }
+}
