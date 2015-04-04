@@ -1,7 +1,6 @@
 'use strict';
 
 var React = require('react/addons');
-var ReactTransitionGroup = React.addons.TransitionGroup;
 var Circle = require('./Circle');
 
 // CSS
@@ -267,7 +266,7 @@ var CrazyCatApp = React.createClass({
         });
         var className = 'main';
         if(this.state.isCatSad) {
-            className += ' sad-cat'
+            className += ' sad-cat';
         }
         return (
             <div className={className}>
