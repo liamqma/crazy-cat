@@ -166,6 +166,7 @@ var App = React.createClass({
             rows.push(row);
         }
         return {
+            steps: 0,
             isCatSad: false,
             rows: rows
         };
@@ -175,6 +176,7 @@ var App = React.createClass({
 
         if (this.state.rows[y][x] === Circle.types.EMPTY) {
             this.state.rows[y][x] = Circle.types.BLOCKED;
+            this.state.steps = this.state.steps + 1;
         } else {
             return;
         }
@@ -229,7 +231,7 @@ var App = React.createClass({
                 this.state.rows[currentCat.y][currentCat.x] = Circle.types.CAT;
                 break;
             default:
-                sweetAlert({title: 'Well done!', type: 'success'});
+                sweetAlert({title: 'Well done!', text: 'You use ' + this.state.steps + ' steps to catch the cat.',type: 'success'});
                 break;
         }
 
