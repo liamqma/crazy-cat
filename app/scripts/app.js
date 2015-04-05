@@ -1,19 +1,14 @@
 'use strict';
 
-var React = require('react/addons');
-var Circle = require('./Circle');
-
-// CSS
-require('../../styles/normalize.css');
-require('../../styles/main.css');
-require('../../styles/row.css');
+var React = require('react');
+var Circle = require('./ui/Circle');
+var sweetAlert = require('../bower_components/sweetalert/lib/sweet-alert.js');
 
 var currentCat = {x: 4, y: 4};
 var MOVE_NONE = -1, MOVE_LEFT = 0, MOVE_UP_LEFT = 1, MOVE_UP_RIGHT = 2, MOVE_RIGHT = 3, MOVE_BOTTOM_RIGHT = 4,
     MOVE_BOTTOM_LEFT = 5;
 
-
-var CrazyCatApp = React.createClass({
+var App = React.createClass({
 
     getMoveDirection: function () {
         var distanceMap = [];
@@ -160,7 +155,7 @@ var CrazyCatApp = React.createClass({
             for (var indexX = 0; indexX < 9; indexX++) {
                 if (indexX === currentCat.x && indexY === currentCat.y) {
                     type = Circle.types.CAT;
-                } else if (Math.random() < 0.4) {
+                } else if (Math.random() < 0.15) {
                     type = Circle.types.BLOCKED;
                 } else {
                     type = Circle.types.EMPTY;
@@ -185,7 +180,7 @@ var CrazyCatApp = React.createClass({
         }
 
         if (currentCat.x === 0 || currentCat.x === 8 || currentCat.y === 0 || currentCat.y === 8) {
-            alert('Game Over');
+            sweetAlert('Oops...', 'The cat ran away', 'error');
             return;
         }
 
@@ -234,7 +229,7 @@ var CrazyCatApp = React.createClass({
                 this.state.rows[currentCat.y][currentCat.x] = Circle.types.CAT;
                 break;
             default:
-                alert("Game Over");
+                sweetAlert({title: 'Well done!', type: 'success'});
                 break;
         }
 
@@ -244,7 +239,6 @@ var CrazyCatApp = React.createClass({
     },
 
     render: function () {
-
         var self = this;
         var rowsHtml = [];
 
@@ -275,6 +269,6 @@ var CrazyCatApp = React.createClass({
         );
     }
 });
-React.render(<CrazyCatApp />, document.getElementById('content')); // jshint ignore:line
+React.render(<App />, document.getElementById('app')); // jshint ignore:line
 
-module.exports = CrazyCatApp;
+module.exports = App;

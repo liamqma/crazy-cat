@@ -1,9 +1,6 @@
 'use strict';
 
-var React = require('react/addons');
-
-// CSS
-require('../../styles/circle.css');
+var React = require('react');
 
 var Circle = React.createClass({
     propTypes: {

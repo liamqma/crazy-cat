@@ -1,0 +1,42 @@
+.circle {
+    width: 50px;
+    height: 50px;
+    background-color: #b5b5b5;
+    text-indent: -9999px;
+    border-radius: 24px;
+    float: left;
+    margin: 1px 2px;
+    position: relative;
+    &.blocked {
+        background-color: #ff845e;
+    }
+    &.cat > div {
+        position: absolute;
+        width: 60px;
+        height: 95px;
+        background: url('../images/happycat.png') left center;
+        animation: play .8s steps(4) infinite;
+        bottom: 12px;
+        left: -6px;
+        .sad-cat & {
+            width: 65px;
+            height: 95px;
+            background: url('../images/sadcat.png') left center;
+            -webkit-animation: sad-cat-play .8s steps(5) infinite;
+            bottom: 2px;
+            left: -6px;
+        }
+    }
+}
+
+@keyframes play {
+    100% {
+        background-position: -240px;
+    }
+}
+
+@keyframes sad-cat-play {
+    100% {
+        background-position: -325px;
+    }
+}
