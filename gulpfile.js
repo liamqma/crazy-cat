@@ -178,4 +178,4 @@ gulp.task('build', ['html', 'buildBundle', 'images', 'extras'], function() {
 });
 
 // Default task
-gulp.task('default', ['clean', 'build', 'jest' ]);
+gulp.task('default', ['clean', 'build' ]);
