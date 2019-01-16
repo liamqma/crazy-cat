@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+      "target": "esnext",
+      "moduleResolution": "node",
+      "jsx": "preserve",
+      "noEmit": true,
+      "pretty": true,
+      "strict": true,
+      "skipLibCheck": true,
+      "allowSyntheticDefaultImports": true,
+      "noUnusedLocals": true,
+      "baseUrl": ".",
+      "paths": {
+          "src/*": ["src/*"]
+      }
+  }
+}
