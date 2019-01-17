@@ -1,2 +1,2 @@
-DEMO: [http://www.liamqma.me/crazy-cat/](http://www.liamqma.me/crazy-cat/)
+DEMO: [http://liamqma.github.io/crazy-cat/](http://liamqma.github.io/crazy-cat/)
 
