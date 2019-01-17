@@ -55,7 +55,7 @@ interface Props {
 }
 
 class Circle extends React.Component<Props> {
-    onClick() {
+    onClick = () => {
         this.props.onClick(this.props.x, this.props.y, this.props.type);
     }
 
